@@ -1,0 +1,15 @@
+.intro.activeIntro,
+.quizContainer.activeQuiz,
+.resultBox.activeResult {
+    /* transform: translate(-50%, 50%) scale(1); */
+    background:  black
+}
+.intro,
+.quizContainer,
+.resultBox{
+    width:540px;
+    background-color: white;
+    border: 5px black solid;
+    padding: 25px;
+    margin: 10px;
+}
