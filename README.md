@@ -8,3 +8,5 @@ whether the user answer a question correclty o wrong, this will be presented wit
 if the user answers a question incorrectly
 5s is subtracted from the clock I can save my the user name and the score.
 I still need to work on the local storage. I had tried with no success. Any recommendatios is accepted. Thank you!
+
+I tried to focus more in functionallity so please disregard the appereance.
