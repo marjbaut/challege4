@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./style.css"/>
-</head>
+</head> 
 <body>
     <!-- view scores and timer -->
     <header >
-        <h1>View Highscores </h1>
+    
         <div class="timerBox" id="timer">
             <div class="timeLeft" id="timeLeftId"> </div>
             <div class="timer-sec"></div>
@@ -39,16 +39,18 @@
 
     </div>
     <div class="resultBox" id="resultBoxId">
-         <div class="completeText"> you've completed the quiz</div>
-         <div class="score"></div>
-            <input type="text" class="userName">
-        <div class = "button">
-            <button class="submitButton"> submit</button>
-        </div>        
+        <div class="completeText"> YOU'VE COMPLETED THE QUIZ!</div>
+        <div class="score"></div>
+
+        <input ID="userName" />
+        <button id="save"> save </button>
+            
         </div>
     </div>
+    
     <div class="Highscores">
-        
+        <button id='view'>Viewhigh Scores </button> 
+        <h1 class="output"></h1>
     </div>
     <script src="script.js"></script>
 </body>

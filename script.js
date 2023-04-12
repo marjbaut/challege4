@@ -32,19 +32,14 @@ var option_list = document.querySelector(".option-list");
 var quest_result = document.querySelector('.q-result');
 //Result Box
 var resultBox = document.querySelector('.resultBox');
-var submit = document.querySelector(".submitButton ");
-var score = document.querySelector('.score')
-var userName = document.querySelector('.userName');
-var submitButton = document.querySelector('.submitButton');
-//when user clicks on start
+var newData =  document.getElementById('userName').value;
 
-
+var score = document.querySelector('.score');
 
 startButton.addEventListener('click', function () {
     showTimer(sec);
     showQuestions(que_count);
-    
-})
+});
 
 var sec = 60;
 var que_count = 0;
@@ -65,7 +60,6 @@ function showQuestions(index) {
         '<div class="option"><span>' + Questions[index].options[0] + '</span></div>' +
         '<div class="option"><span>' + Questions[index].options[1] + '</span></div>' +
         '<div class="option"><span>' + Questions[index].options[2] + '</span></div>';
-
     que_text.innerHTML = que_tag;
 
     option_list.innerHTML = option_tag;
@@ -76,23 +70,18 @@ function showQuestions(index) {
         console.log("forloop option");
         console.log(option[i].textContent);
         option[i].setAttribute('onclick', "optionSelected(this)");
-
     }
 }
 function optionSelected(answer) {
     console.log(answer);
     console.log(answer.textContent);
     console.log(Questions[que_count].correctAnswer);
-
     if (answer.textContent == Questions[que_count].correctAnswer) {
         console.log('answer correct');
-
     } else {
         //deduct time 
-        
         showTimer(getSec() - 5);
-        console.log('WRIONG!time was deducted');
-
+        console.log('WRONG!time was deducted');
     }
     que_count++;
     if (que_count > 2) {
@@ -101,25 +90,35 @@ function optionSelected(answer) {
         getSec();
     } else {
         showQuestions(que_count);
-        
     }
 }
 
 function showResultBox() {
     resultBox;
-    score.innerHTML = 'your score is: ' + getSec();
+    score.innerHTML =  getSec();
 
 };
-submitButton.addEventListener('click',function highscores(){
-    arr = JSON.parse(localStorage.getItem('Highscores'));
-    console.log (arr);
-    userName = userName.value;
-    arr.push(userName, getSec());
-    localStorage.setItem('Highscores',JSON.stringify(arr));
+
+var saveButton = document.getElementById('save');
+var viewButton = document.getElementById('view');
+
+saveButton.addEventListener('click',function save(newData){
+localStorage.setItem('data', newData);
+    localStorage.setItem('data', score);
+    console.log("you clicked save");
+    // // get old data
+    // var oldData = localStorage.getItem('data');
+    // // oldData.push(newData);
+    // // save the old + new data to local storage
     
-   
-    localStorage.setItem(userName,getSec())
-})
+    console.log (localStorage.setItem('data', newData));
+    console.log (score.value);
+});
+viewButton.addEventListener('click', function view(){
+ if(localStorage.getItem('data') !=null){
+       var outputlist=  document.getElementsByClassName('.output').innerHTML = localStorage.getItem('data');
+    }
+});
 
 function showTimer(sec) {
     timer = setInterval(function () {
